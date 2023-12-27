@@ -92,7 +92,10 @@ fun KontakLayout(
         items(kontak){kontak ->
             KontakCard(kontak = kontak, modifier = Modifier
                 .fillMaxWidth()
-                .clickable { onDetailClick(kontak)})
+                .clickable { onDetailClick(kontak)},
+                onDeleteClick = { onDeleteClick(kontak)
+                }
+            )
         }
     }
 }
