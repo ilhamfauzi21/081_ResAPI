@@ -32,7 +32,7 @@ import com.example.consumerresapi.model.Kontak
 import com.example.consumerresapi.ui.home.viewmodel.KontakUIState
 
 @Composable
-fun HomeScreen(
+fun HomeStatus(
     kontakUIState: KontakUIState, retryAction: () -> Unit, modifier: Modifier = Modifier
 ) {
     when (kontakUIState){
