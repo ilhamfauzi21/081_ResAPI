@@ -1,4 +1,4 @@
-package com.example.consumerresapi.ui.theme
+package com.example.consumerresapi.ui
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

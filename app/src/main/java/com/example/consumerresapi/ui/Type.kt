@@ -1,4 +1,4 @@
-package com.example.consumerresapi.ui.theme
+package com.example.consumerresapi.ui
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
