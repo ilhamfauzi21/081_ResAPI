@@ -16,7 +16,7 @@ sealed class KontakUIState{
     object Loading : KontakUIState()
 }
 
-class HomeViewModel (private val kontakRepository: KontakRepository) : ViewModel(){
+class HomeViewModel (private val kontakRepository: KontakRepository) : ViewModel() {
     var kontakUIState: KontakUIState by mutableStateOf(KontakUIState.Loading)
         private set
 
@@ -24,14 +24,26 @@ class HomeViewModel (private val kontakRepository: KontakRepository) : ViewModel
         getKontak()
     }
 
-    fun getKontak(){
+    fun getKontak() {
         viewModelScope.launch {
             kontakUIState = KontakUIState.Loading
             kontakUIState = try {
                 KontakUIState.Success(kontakRepository.getKontak())
-            } catch (e: IOException){
+            } catch (e: IOException) {
                 KontakUIState.Error
-            } catch (e: HttpException){
+            } catch (e: HttpException) {
+                KontakUIState.Error
+            }
+        }
+    }
+
+    fun deleteKontak(id: Int) {
+        viewModelScope.launch {
+            try {
+                kontakRepository.deleteKontak(id)
+            } catch (e: IOException) {
+                KontakUIState.Error
+            } catch (e: IOException) {
                 KontakUIState.Error
             }
         }
