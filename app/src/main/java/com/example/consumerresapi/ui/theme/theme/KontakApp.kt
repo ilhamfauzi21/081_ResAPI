@@ -66,7 +66,13 @@ fun TopAppBarKontak(
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior? = null,
     navigateUp: () -> Unit = {}
-){CenterAlignedTopAppBar(title = { Text(title) },
+){CenterAlignedTopAppBar(
+    title = {
+        Text(
+            text = stringResource(id = R.string.app_name),
+            style = MaterialTheme.typography.headlineSmall
+        )
+    },
     modifier = modifier,
     scrollBehavior = scrollBehavior,
     navigationIcon = {
